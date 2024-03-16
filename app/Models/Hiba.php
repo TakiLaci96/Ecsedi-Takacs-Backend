@@ -12,7 +12,7 @@ class Hiba extends Model
     protected $fillable = [
         "hibaMegnevezese",
         "hibaLeirasa",
-        "hibaHely",
+        "hibaHelye",
         "hibaKepe",
         "bejelentesIdopontja",
         "hibaAllapota"

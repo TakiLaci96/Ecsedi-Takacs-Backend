@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// Hibás, nem kapott meg a várt eredmény
+//Route::get("/hiba", [HibaController::class, 'index']);
 
-
-
-Route::apiResource("hiba", HibaController::class);
+Route::apiResource("/hiba", HibaController::class);

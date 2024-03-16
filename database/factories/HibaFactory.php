@@ -24,6 +24,7 @@ class HibaFactory extends Factory
             "hibaKepe" => fake()->word(),
             "bejelentesIdopontja" => fake()->date(),
             //"hibaAllapota" => fake()-> word()
+            //"hibaAllapota" => fake()-> randomElements("...", "...", "...")
         ];
     }
 }
