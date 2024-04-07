@@ -42,4 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function hibak() : HasMany //a felhasználóhoz tartozó hibák
+    {
+        return $this->hasMany(Hiba::class);
+    }
 }

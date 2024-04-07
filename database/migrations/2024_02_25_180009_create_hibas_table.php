@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->DateTime("bejelentesIdopontja");
             $table->enum("hibaAllapota",['bejelentés alatt', 'folyamatban', 'kész'])->default('bejelentés alatt');
             $table->timestamps();
+            $table->foreignIdFor(User::class)->constrained(); //összeköti a hibát a userrel
         });
     }
 

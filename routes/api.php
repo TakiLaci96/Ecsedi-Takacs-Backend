@@ -19,13 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// Hibás, nem kapott meg a várt eredmény
 //Route::get("/hiba", [HibaController::class, 'index']);
 
-Route::apiResource("/hiba", HibaController::class);
-
+//Auth utak
 Route::post("/register", [AuthController::class, "register"]);
 Route::post("/login", [AuthController::class, "login"]);
 Route::post("/logout", [AuthController::class, "logout"])->middleware("auth:sanctum");
 Route::post("/logout-everywhere", [AuthController::class, "logoutEverywhere"])->middleware("auth:sanctum");
 
+//Hiba bejelentések útjai
+Route::apiResource("/hiba", HibaController::class)->middleware("auth:sanctum");
+Route::get("/index", [HibaController::class, "index"])->middleware("auth:sanctum");
+Route::post("/store", [HibaController::class, "store"])->middleware("auth:sanctum");
+Route::get("/hibak/{id}", [HibaController::class, "show"])->middleware("auth:sanctum");
+Route::put("/update/{id}", [HibaController::class, "update"])->middleware("auth:sanctum");
+Route::delete("/destroy/{id}", [HibaController::class, "destroy"])->middleware("auth:sanctum");
+Route::get("/kuka", [HibaController::class, "kukaUser"])->middleware("auth:sanctum");
+Route::get("/kuka-admin", [HibaController::class, "kukaAdmin"])->middleware("auth:sanctum");

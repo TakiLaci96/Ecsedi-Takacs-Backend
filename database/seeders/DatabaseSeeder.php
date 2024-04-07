@@ -12,8 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(HibaSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(HibaSeeder::class);
 
 
         // \App\Models\User::factory(10)->create();
