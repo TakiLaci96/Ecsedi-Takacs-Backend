@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email', 320)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password', 100);
+            $table->enum("adminE",['felhasználó', 'admin'])->default('felhasználó');
             $table->rememberToken();
             $table->timestamps();
         });
