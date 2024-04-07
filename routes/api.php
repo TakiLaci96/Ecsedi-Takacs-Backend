@@ -28,7 +28,6 @@ Route::post("/logout", [AuthController::class, "logout"])->middleware("auth:sanc
 Route::post("/logout-everywhere", [AuthController::class, "logoutEverywhere"])->middleware("auth:sanctum");
 
 //Hiba bejelentések útjai
-//ezek mennek
 Route::get("/indexAll", [HibaController::class, "indexAll"])->middleware("auth:sanctum");
 Route::get("/index", [HibaController::class, "index"])->middleware("auth:sanctum");
 Route::post("/store", [HibaController::class, "store"])->middleware("auth:sanctum");
@@ -36,7 +35,6 @@ Route::get("/hibak/{id}", [HibaController::class, "show"])->middleware("auth:san
 Route::put("/update/{id}", [HibaController::class, "update"])->middleware("auth:sanctum");
 Route::delete("/destroy/{id}", [HibaController::class, "destroy"])->middleware("auth:sanctum");
 Route::get("/kuka-admin", [HibaController::class, "kukaAdmin"])->middleware("auth:sanctum");
+Route::get("/kuka", [HibaController::class, "kukaUser"])->middleware("auth:sanctum");
 
-//ezek nem mennek :(
 #Route::apiResource("/hiba", HibaController::class)->middleware("auth:sanctum");
-#Route::get("/kuka", [HibaController::class, "kukaUser"])->middleware("auth:sanctum");
