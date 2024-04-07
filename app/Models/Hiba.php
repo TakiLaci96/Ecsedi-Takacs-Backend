@@ -16,7 +16,7 @@ class Hiba extends Model
         "hibaLeirasa",
         "hibaHelye",
         "hibaKepe",
-        "bejelentesIdopontja",
+        //"bejelentesIdopontja",
         "hibaAllapota",
         "user_id"
     ];

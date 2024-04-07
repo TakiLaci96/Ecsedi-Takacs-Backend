@@ -88,15 +88,24 @@ class HibaController extends Controller
         return $hibak;
     }
 
-    public function kukaUser(string $id) //a törölt elemeit láthatja a felhasználó
+    public function kukaUser() //a törölt elemeit láthatja a felhasználó
     {
         #$user = auth()->user();
         #$hibak = $user->hibak()->onlyTrashed()->get();
         #return $hibak;
 
+        /*
         $hibak = Hiba::onlyTrashed()->get();
-        $this->authorize("view", $hiba);
+        $this->authorize("view", $hibak);
         return $hibak;
+        */
+
+        $user = auth()->user(); // Az aktuális felhasználó lekérése
+        $hibak = $user->hibak()->onlyTrashed()->get(); // Az aktuális felhasználóhoz tartozó, törölt hibák lekérése
+        $this->authorize("view", $hibak); // Ellenőrizni, hogy az aktuális felhasználóhoz tartozik-e a hiba
+        return $hibak; // A törölt hibák visszaadása
+
+        #PRÓBÁLTUK, DE NEM TALÁLTUK MEG A MEGFELELŐ MEGOLDÁST, LEHET A MODELBEN VAN A HIBA?
     }
 
 }

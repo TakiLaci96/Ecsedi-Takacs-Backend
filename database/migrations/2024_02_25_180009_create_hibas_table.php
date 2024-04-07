@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("hibaLeirasa", 300);
             $table->string("hibaHelye", 100);
             $table->string("hibaKepe", 300);
-            $table->DateTime("bejelentesIdopontja");
+            //$table->DateTime("bejelentesIdopontja");
             $table->enum("hibaAllapota",['bejelentés alatt', 'folyamatban', 'kész'])->default('bejelentés alatt');
             $table->timestamps();
             $table->foreignIdFor(User::class)->constrained(); //összeköti a hibát a userrel

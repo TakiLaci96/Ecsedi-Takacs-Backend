@@ -26,7 +26,7 @@ class HibaFactory extends Factory
             "hibaLeirasa" => fake()-> sentence(4),
             "hibaHelye" => fake()-> address(),
             "hibaKepe" => fake()->word(),
-            "bejelentesIdopontja" => fake()->date(),
+            //"bejelentesIdopontja" => fake()->date(),
             "user_id" => $user_id,
             //"hibaAllapota" => fake()-> word()
             //"hibaAllapota" => fake()-> randomElements("...", "...", "...")
