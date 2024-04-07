@@ -13,7 +13,13 @@ class HibaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function indexAll()
+    {
+        $hibak = Hiba::all();
+        return $hibak;
+    }
+
+     public function index()
     {
         #$hibak = Hiba::all();
         #return $hibak;
