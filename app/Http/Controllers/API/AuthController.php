@@ -46,4 +46,12 @@ class AuthController extends Controller
         $user->tokens()->delete();
         return response()->noContent();
     }
+
+    public function indexAllUser()
+    {
+        #$this->middleware('auth:sanctum');
+        $users = User::all();
+        return $users;
+    }
+
 }

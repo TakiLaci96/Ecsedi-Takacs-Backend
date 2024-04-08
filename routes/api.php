@@ -37,4 +37,7 @@ Route::delete("/destroy/{id}", [HibaController::class, "destroy"])->middleware("
 Route::get("/kuka-admin", [HibaController::class, "kukaAdmin"])->middleware("auth:sanctum");
 Route::get("/kuka", [HibaController::class, "kukaUser"])->middleware("auth:sanctum");
 
-#Route::apiResource("/hiba", HibaController::class)->middleware("auth:sanctum");
+Route::apiResource("/hiba", HibaController::class)->middleware("auth:sanctum");
+
+//User lekérdezések
+Route::get("/indexAllUser", [AuthController::class, "indexAllUser"])->middleware("auth:sanctum");
