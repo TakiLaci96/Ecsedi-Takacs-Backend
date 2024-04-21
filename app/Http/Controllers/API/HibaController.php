@@ -42,11 +42,12 @@ class HibaController extends Controller
         $user = auth()->user();
         $hiba = new Hiba($request->all());
         $hiba->user_id = $user->id;
-        //van-e kép
+        //ha feltölt egy képet, akkor elmenti a képet
         $file = $request->file("hibaKepeLink");
         if (!is_null($file)) {
             $utvonal = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
             $hiba->hibaKepeLink = $utvonal; //link hozzáférés
+        }
 
         // HA NEM JÖN BE BASE64 KÓD, CSAK A FÁJL, AKKOR GENERÁLJA LE A BASE64 KÓDOT
         if (is_null($hiba->hibaKepe)) {
@@ -55,9 +56,6 @@ class HibaController extends Controller
         } else {
             $hibaKepe = 'hiba';
         }
-            //
-        }
-
 
         $hiba->save();
         return $hiba;
