@@ -42,6 +42,13 @@ class HibaController extends Controller
         $user = auth()->user();
         $hiba = new Hiba($request->all());
         $hiba->user_id = $user->id;
+        //van-e kép
+        $file = $request->file("hibaKepe");
+        if (!is_null($file)) {
+            $image = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
+            $hiba->hibaKepe = $image;
+        }
+
         $hiba->save();
         return $hiba;
     }

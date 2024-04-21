@@ -24,7 +24,8 @@ class HibaRequest extends FormRequest
         return [
             "hibaMegnevezese" => "required|string|max:100",
             "hibaLeirasa" => "required|string",
-            "hibaHelye" => "required|string"
+            "hibaHelye" => "required|string",
+            "hibaKepe" => "image|nullable|max:40960",
         ];
     }
 }

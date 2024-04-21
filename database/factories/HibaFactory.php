@@ -20,14 +20,17 @@ class HibaFactory extends Factory
         //összeköti a hibát a userrel
         $allUserId = User::all()->pluck('id');
         $user_id = fake()->randomElement($allUserId);
+        //létrehoz egy képet
+        $hibaKepe = fake()->image("public/storage/images/bejelentesek", 640, 480, null, false); //hova mentse a képet
+        $hibaKepe = "storage/images/bejelentesek/".$hibaKepe; //kép elérési útja, hogy majd elérjük frontenden
 
         return [
             "hibaMegnevezese" => fake()-> word(),
             "hibaLeirasa" => fake()-> sentence(4),
             "hibaHelye" => fake()-> address(),
-            "hibaKepe" => fake()->word(),
-            //"bejelentesIdopontja" => fake()->date(),
+            "hibaKepe" => $hibaKepe,
             "user_id" => $user_id,
+            //"bejelentesIdopontja" => fake()->date(),
             //"hibaAllapota" => fake()-> word()
             //"hibaAllapota" => fake()-> randomElements("...", "...", "...")
 
