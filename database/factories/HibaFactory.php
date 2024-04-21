@@ -24,18 +24,14 @@ class HibaFactory extends Factory
         $hibaKepeLink = fake()->image("public/storage/images/bejelentesek", 640, 480, null, false); //hova mentse a képet
         $hibaKepeLink = "storage/images/bejelentesek/".$hibaKepeLink; //kép elérési útja, hogy majd elérjük frontenden
 
-        // Default image path
+        // Alapértelmezett kép base64 kódoláshoz
         $utvonal = "public/storage/images/bejelentesek/default.png";
-
-        // Check if the default image exists
         if (file_exists($utvonal)) {
-            // Read the default image
             $hibaKepe = file_get_contents($utvonal);
-            // Encode the default image to base64
+            //base64 kódolás
             $hibaKepe = base64_encode($hibaKepe);
         } else {
-            // Set a default value if the image doesn't exist
-            $hibaKepe = 'hiba'; // or any other default value you prefer
+            $hibaKepe = 'hiba';
         }
 
 

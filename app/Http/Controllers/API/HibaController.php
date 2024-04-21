@@ -45,9 +45,19 @@ class HibaController extends Controller
         //van-e kép
         $file = $request->file("hibaKepeLink");
         if (!is_null($file)) {
-            $image = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
-            $hiba->hibaKepeLink = $image;
+            $utvonal = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
+            $hiba->hibaKepeLink = $utvonal; //link hozzáférés
+
+        // HA NEM JÖN BE BASE64 KÓD, CSAK A FÁJL, AKKOR GENERÁLJA LE A BASE64 KÓDOT
+        if (is_null($hiba->hibaKepe)) {
+            $image = file_get_contents($file);
+            $hiba->hibaKepe = base64_encode($image); //base64 kódolás
+        } else {
+            $hibaKepe = 'hiba';
         }
+            //
+        }
+
 
         $hiba->save();
         return $hiba;
