@@ -43,10 +43,10 @@ class HibaController extends Controller
         $hiba = new Hiba($request->all());
         $hiba->user_id = $user->id;
         //van-e kép
-        $file = $request->file("hibaKepe");
+        $file = $request->file("hibaKepeLink");
         if (!is_null($file)) {
             $image = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
-            $hiba->hibaKepe = $image;
+            $hiba->hibaKepeLink = $image;
         }
 
         $hiba->save();
@@ -77,6 +77,11 @@ class HibaController extends Controller
         }
         $this->authorize("update", $hiba); //update Policy alapján módosíthatod a bejelentéseket
         $hiba->fill($request->all());
+        $file = $request->file("hibaKepeLink");
+        if (!is_null($file)) {
+            $image = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
+            $hiba->hibaKepeLink = $image;
+        }
         $hiba->save();
         return $hiba;
     }
@@ -117,6 +122,20 @@ class HibaController extends Controller
         $hibak = $user->hibak()->onlyTrashed()->get(); // Az aktuális felhasználóhoz tartozó, törölt hibák lekérése
         #$this->authorize("view", $hibak); // Ellenőrizni, hogy az aktuális felhasználóhoz tartozik-e a hiba
         return $hibak; // A törölt hibák visszaadása
+    }
+
+    //Kép törlése
+    public function removeImage(string $id)
+    {
+        $hiba = Hiba::find($id);
+        if (is_null($hiba)) {
+            return response()->json(["message" => "Nincs ilyen azonosító: $id"], 404);
+        }
+        $this->authorize("update", $hiba);
+        $hiba->hibaKepe = null;
+        $hiba->hibaKepeLink = null;
+        $hiba->save();
+        return $hiba;
     }
 
 }

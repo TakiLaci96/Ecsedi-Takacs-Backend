@@ -36,6 +36,7 @@ Route::put("/update/{id}", [HibaController::class, "update"])->middleware("auth:
 Route::delete("/destroy/{id}", [HibaController::class, "destroy"])->middleware("auth:sanctum");
 Route::get("/kuka-admin", [HibaController::class, "kukaAdmin"])->middleware("auth:sanctum");
 Route::get("/kuka", [HibaController::class, "kukaUser"])->middleware("auth:sanctum");
+Route::patch("/hiba/remove-image/{id}", [HibaController::class, "removeImage"])->middleware("auth:sanctum");
 
 Route::apiResource("/hiba", HibaController::class)->middleware("auth:sanctum");
 

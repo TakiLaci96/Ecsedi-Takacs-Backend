@@ -15,7 +15,8 @@ class Hiba extends Model
         "hibaMegnevezese",
         "hibaLeirasa",
         "hibaHelye",
-        "hibaKepe",
+        "hibaKepe", //base64 kódolt kép
+        "hibaKepeLink", //feltöltött kép
         //"bejelentesIdopontja",
         "hibaAllapota",
         "user_id"
