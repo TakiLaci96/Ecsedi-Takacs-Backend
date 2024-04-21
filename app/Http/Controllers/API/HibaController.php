@@ -132,7 +132,7 @@ class HibaController extends Controller
         return $hibak; // A törölt hibák visszaadása
     }
 
-    //Kép törlése
+    //Kép törlése - de át kell gondolni, mert a base64 kód minimum kell, max a feltöltést, a linket lehet törölni
     public function removeImage(string $id)
     {
         $hiba = Hiba::find($id);
