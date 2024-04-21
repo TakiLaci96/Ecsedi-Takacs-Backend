@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string("hibaMegnevezese", 50);
             $table->string("hibaLeirasa", 300);
             $table->string("hibaHelye", 100);
-            $table->string("hibaKepe", 300);
+            $table->longtext("hibaKepe", 4294967295);
             $table->string("hibaKepeLink", 300)->nullable();
-            //$table->DateTime("bejelentesIdopontja");
             $table->enum("hibaAllapota",['bejelentés alatt', 'folyamatban', 'kész', 'elutasítva'])->default('bejelentés alatt');
             $table->timestamps();
             $table->foreignIdFor(User::class)->constrained(); //összeköti a hibát a userrel
+            //$table->DateTime("bejelentesIdopontja");
         });
     }
 

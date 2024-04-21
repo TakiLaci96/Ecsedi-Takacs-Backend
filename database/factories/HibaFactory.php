@@ -28,6 +28,7 @@ class HibaFactory extends Factory
             "hibaMegnevezese" => fake()-> word(),
             "hibaLeirasa" => fake()-> sentence(4),
             "hibaHelye" => fake()-> address(),
+            "hibaKepe" => fake()-> word(),
             "hibaKepeLink" => $hibaKepeLink,
             "user_id" => $user_id,
             //"bejelentesIdopontja" => fake()->date(),
