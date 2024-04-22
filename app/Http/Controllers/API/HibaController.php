@@ -24,10 +24,11 @@ class HibaController extends Controller
         #$hibak = Hiba::all();
         #return $hibak;
 
-
         $user = auth()->user(); //bejelentkezett felhasználó azonosítása
         #return Bejelentes::where("user_id", $user->$id)->get();
         return $user->hibak; //hasMany kapcsolat miatt
+
+        //return Hiba::where("user_id", $user->id)->get();
     }
 
     /**

@@ -15,8 +15,8 @@ class UserSeeder extends Seeder
     {
         User::factory()->create([ //admin felhasználó hozzáadása seedeléskor
             'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => bcrypt('password'),
+            'email' => 'admin@admin.hu',
+            'password' => bcrypt('123123123'),
             'adminE' => 'admin'
         ]);
         User::factory(10)->create(); //sima felhasználók hozzáadása seedeléskor
