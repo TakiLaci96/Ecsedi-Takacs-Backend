@@ -32,7 +32,7 @@ Route::get("/indexAll", [HibaController::class, "indexAll"])->middleware("auth:s
 Route::get("/index", [HibaController::class, "index"])->middleware("auth:sanctum"); //saját bejelentések megtekintése
 Route::post("/store", [HibaController::class, "store"])->middleware("auth:sanctum"); //mentés
 Route::get("/hibak/{id}", [HibaController::class, "show"])->middleware("auth:sanctum"); //egy bejelentés megtekintése
-Route::put("/update/{id}", [HibaController::class, "update"])->middleware("auth:sanctum"); //egy bejelentés módosítása
+Route::patch("/update/{id}", [HibaController::class, "update"])->middleware("auth:sanctum"); //egy bejelentés módosítása
 Route::delete("/destroy/{id}", [HibaController::class, "destroy"])->middleware("auth:sanctum"); //egy bejelentés törlése
 Route::get("/kuka-admin", [HibaController::class, "kukaAdmin"])->middleware("auth:sanctum"); //összes törölt elem megtekintése
 Route::get("/kuka", [HibaController::class, "kukaUser"])->middleware("auth:sanctum"); //saját törölt elemek megtekintése

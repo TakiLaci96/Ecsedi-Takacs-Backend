@@ -21,7 +21,7 @@ class HibaPolicy //kinek mire van jogosultsága
 
     public function view(User $user, Hiba $hiba): bool //adott hibát megtekinthet
     {
-        return $user->id == $hiba->user_id;
+        return $user->adminE === 'admin' || $user->id === $hiba->user_id;
     }
 
     public function create(User $user): bool //új hibát létrehozhat
@@ -31,7 +31,7 @@ class HibaPolicy //kinek mire van jogosultsága
 
     public function update(User $user, hiba $hiba): bool //adott hibát módosíthat
     {
-        return $user->id == $hiba->user_id;
+        return $user->adminE === 'admin' || $user->id === $hiba->user_id;
     }
 
     public function delete(User $user, hiba $hiba): bool //adott hibát törölhet
@@ -40,13 +40,11 @@ class HibaPolicy //kinek mire van jogosultsága
     }
     public function restore(User $user, hiba $hiba): bool //adott hibát visszaállíthat
     {
-        //ITT IS ADMINRA KELL ÁLLÍTANI
-        return $user->id == $hiba->user_id;
+        return $user->adminE === 'admin' || $user->id === $hiba->user_id;
     }
 
     public function forceDelete(User $user, Advertisement $hiba): bool //adott hibát végleg törölhet
     {
-        //ITT IS ADMINRA KELL ÁLLÍTANI
-        return $user->id == $hiba->user_id;
+        return $user->adminE === 'admin' || $user->id === $hiba->user_id;
     }
 }

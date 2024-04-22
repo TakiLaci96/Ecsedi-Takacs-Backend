@@ -89,6 +89,8 @@ class HibaController extends Controller
         if (!is_null($file)) {
             $image = $file->store("storage/images/bejelentesek", ["disk" => "public"]);
             $hiba->hibaKepeLink = $image;
+            $image = file_get_contents($file);
+            $hiba->hibaKepe = base64_encode($image); //base64 kódolás
         }
         $hiba->save();
         return $hiba;
