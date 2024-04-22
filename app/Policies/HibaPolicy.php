@@ -36,9 +36,8 @@ class HibaPolicy //kinek mire van jogosultsága
 
     public function delete(User $user, hiba $hiba): bool //adott hibát törölhet
     {
-        return $user->id == $hiba->user_id;
+        return $user->adminE === 'admin' || $user->id === $hiba->user_id;
     }
-
     public function restore(User $user, hiba $hiba): bool //adott hibát visszaállíthat
     {
         //ITT IS ADMINRA KELL ÁLLÍTANI
