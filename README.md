@@ -44,8 +44,8 @@ Mobil app: https://github.com/TakiLaci96/2024-takacs-ecsedi-vizsgaremek-mobil
 ### Az adatbázisban megtalálható felhaszálókhoz az adatok
 ```bash
 Admin a weboldalhoz:
-- Email : admin@example.com
-- Pw : admin1234
+- Email : admin@admin.hu
+- Pw : 123123123
 User a mobilhoz:
 - Email : teszt@example.com
 - Pw : asdf1234
