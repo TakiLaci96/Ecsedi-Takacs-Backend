@@ -38,7 +38,7 @@ Mobil app: https://github.com/TakiLaci96/2024-takacs-ecsedi-vizsgaremek-mobil
 ## Adatbázis
 
 <p align="left">
- Ajánlott a repoban megtalálható <a href="" target="blank">vizsga_adatbazis.sql</a> -t használni
+ Ajánlott a repoban megtalálható <a href="https://github.com/TakiLaci96/Ecsedi-Takacs-Backend/blob/main/vizsga_adatbazis.sql" target="blank">vizsga_adatbazis.sql</a>-t használni
 </p>
 
 ### Az adatbázisban megtalálható felhaszálókhoz az adatok
