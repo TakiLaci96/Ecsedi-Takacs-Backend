@@ -30,7 +30,8 @@ class AuthController extends Controller
         }
 
         $token = $user->createToken("AuthToken")->plainTextToken;
-        return response()->json(["token" => $token]);
+        //$admin = $user->adminE
+        return response()->json(["token" => $token]); //kimarad "adminE" => $admin
     }
 
     public function logout(Request $request) {
